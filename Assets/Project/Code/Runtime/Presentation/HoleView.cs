@@ -49,11 +49,12 @@ namespace Assets.Project.Code.Runtime.Presentation
             isHoleHoverActive = isActive;
             if (isActive)
             {
+                holeHoverVfx.StartEmission();
                 holeHoverVfx.Play();
             }
             else
             {
-                StopHoverVfx();
+                holeHoverVfx.StopEmission();
             }
         }
 
@@ -76,16 +77,11 @@ namespace Assets.Project.Code.Runtime.Presentation
         private void ResetVfxState()
         {
             isHoleHoverActive = false;
-            StopHoverVfx();
-            consumeVfx.Stop();
-            consumeVfx.Clear();
-        }
-
-        private void StopHoverVfx()
-        {
-            // UIParticle.Stop() only pauses simulation; Clear removes leftover particles.
+            holeHoverVfx.StopEmission();
             holeHoverVfx.Stop();
             holeHoverVfx.Clear();
+            consumeVfx.Stop();
+            consumeVfx.Clear();
         }
     }
 }
