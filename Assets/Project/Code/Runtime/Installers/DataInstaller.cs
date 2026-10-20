@@ -7,12 +7,16 @@ namespace Assets.Project.Code.Runtime.Installers
     [CreateAssetMenu(fileName = nameof(DataInstaller), menuName = "Project/Installers/" + nameof(DataInstaller))]
     public sealed class DataInstaller : ScriptableObjectInstaller<DataInstaller>
     {
+        [SerializeField] private GameConfig gameConfig;
+
         public override void InstallBindings()
         {
-            Container.Bind<IGameConfigProvider>().To<JsonConfigurationProvider>().AsSingle();
+            //You can use a configurator based on JSON
+            //Container.Bind<IGameConfigProvider>().To<JsonConfigurationProvider>().AsSingle();
 
-            //Или можно использовать конфигуратор из ScriptableObject
-            //Container.Bind<IGameConfigProvider>().To<ScriptableObjectConfigProvider>().AsSingle();
+            //Or you can use a configurator from a ScriptableObject
+            Container.Bind<GameConfig>().FromInstance(gameConfig).AsSingle();
+            Container.Bind<IGameConfigProvider>().To<ScriptableObjectConfigProvider>().AsSingle();
         }
     }
 }

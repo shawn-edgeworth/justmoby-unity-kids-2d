@@ -20,7 +20,7 @@ namespace Assets.Project.Code.Runtime.Installers
             Container.Bind<ICubePlacementRule>().To<HeightLimitPlacementRule>().AsCached();
             Container.Bind<ICubePlacementRule>().To<TopCubeStackPlacementRule>().AsCached();
 
-            //Можно добавить установку только по подходящему цвету
+            //You can add a setting to filter by matching color only
             //Container.Bind<ICubePlacementRule>().To<MatchingTopColorPlacementRule>().AsCached();
 
             Container.Bind<PlacementRules>().AsSingle();
