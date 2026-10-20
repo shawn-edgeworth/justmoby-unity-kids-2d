@@ -112,6 +112,27 @@ namespace Assets.Project.Code.Runtime.Presentation
                 .OnComplete(OnMoveTweenComplete);
         }
 
+        public void PlayRejectShake(
+            float duration,
+            float rotationStrength,
+            float scaleStrength,
+            int vibrato,
+            Action onComplete)
+        {
+            EndFollow();
+            KillMoveTween();
+            moveCompleteCallback = onComplete;
+
+            var sequence = DOTween.Sequence();
+            sequence.Join(rectTransform.DOShakeRotation(
+                duration,
+                new Vector3(0f, 0f, rotationStrength),
+                vibrato));
+            sequence.Join(rectTransform.DOShakeScale(duration, scaleStrength, vibrato));
+            sequence.OnComplete(OnRejectShakeComplete);
+            moveTween = sequence;
+        }
+
         public void PlayDestroy(float duration, Action onComplete)
         {
             EndFollow();
@@ -153,6 +174,13 @@ namespace Assets.Project.Code.Runtime.Presentation
             ResetVisualState();
         }
 
+        private void OnRejectShakeComplete()
+        {
+            rectTransform.localEulerAngles = Vector3.zero;
+            rectTransform.localScale = Vector3.one;
+            OnMoveTweenComplete();
+        }
+
         private void OnMoveTweenComplete()
         {
             moveTween = null;
@@ -177,6 +205,7 @@ namespace Assets.Project.Code.Runtime.Presentation
 
         private void ResetVisualState()
         {
+            rectTransform.localEulerAngles = Vector3.zero;
             rectTransform.localScale = Vector3.one;
 
             var imageColor = image.color;

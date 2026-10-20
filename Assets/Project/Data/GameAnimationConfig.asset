@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <HoleAbsorbDuration>k__BackingField: 1.25
   <DestroyDuration>k__BackingField: 0.25
+  <RejectShakeDuration>k__BackingField: 0.4
+  <RejectShakeRotationStrength>k__BackingField: 18
+  <RejectShakeScaleStrength>k__BackingField: 0.2
+  <RejectShakeVibrato>k__BackingField: 12
   <SettleDuration>k__BackingField: 0.25
   <SettleStagger>k__BackingField: 0.03
   <SettlePositionEpsilon>k__BackingField: 0.01

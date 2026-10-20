@@ -192,12 +192,13 @@ namespace Assets.Project.Code.Runtime.Gameplay
                     sceneRefs.MessageView.Show(failMessage);
                 }
 
+                UnlockPaletteScroll();
                 if (failMessage == GameMessageId.HeightLimitReached)
                 {
-                    audioService.PlayInvalidPlace();
+                    BeginHeightReject(ghostCube);
+                    return;
                 }
 
-                UnlockPaletteScroll();
                 BeginDestroy(ghostCube, DestroyKind.GhostRejected);
                 return;
             }
@@ -292,12 +293,41 @@ namespace Assets.Project.Code.Runtime.Gameplay
             audioService.PlayPlaceOrSettle();
         }
 
+        private void BeginHeightReject(CubeView cube)
+        {
+            pendingDestroyCube = cube;
+            pendingDestroyKind = DestroyKind.GhostRejected;
+            gameStateMachine.Set(GameState.Destroying);
+            audioService.PlayInvalidPlace();
+            cube.PlayRejectShake(
+                animationConfig.RejectShakeDuration,
+                animationConfig.RejectShakeRotationStrength,
+                animationConfig.RejectShakeScaleStrength,
+                animationConfig.RejectShakeVibrato,
+                OnHeightRejectShakeComplete);
+        }
+
+        private void OnHeightRejectShakeComplete()
+        {
+            var cube = pendingDestroyCube;
+            if (cube == null || gameStateMachine.Current != GameState.Destroying)
+            {
+                return;
+            }
+
+            StartDestroyAnimation(cube);
+        }
+
         private void BeginDestroy(CubeView cube, DestroyKind kind)
         {
             pendingDestroyCube = cube;
             pendingDestroyKind = kind;
             gameStateMachine.Set(GameState.Destroying);
+            StartDestroyAnimation(cube);
+        }
 
+        private void StartDestroyAnimation(CubeView cube)
+        {
             PlayDestroySmoke(cube.Position);
             audioService.PlayDestroyWhoosh();
             cube.PlayDestroy(animationConfig.DestroyDuration, OnDestroyAnimationComplete);
