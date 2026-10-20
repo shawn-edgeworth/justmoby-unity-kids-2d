@@ -27,6 +27,13 @@ namespace Assets.Project.Code.Runtime.Installers
 
             Container.Bind<PaletteView>().AsSingle();
             Container.Bind<TowerView>().AsSingle();
+
+            Container.Bind<GamePersistence>().AsSingle();
+            Container.Bind<GameplayFeedback>().AsSingle();
+            Container.Bind<CubeDestroyFlow>().AsSingle();
+            Container.Bind<HoleAbsorbFlow>().AsSingle();
+            Container.Bind<PalettePlaceFlow>().AsSingle();
+            Container.Bind<TowerRemoveFlow>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameController>().AsSingle().NonLazy();
         }
     }
