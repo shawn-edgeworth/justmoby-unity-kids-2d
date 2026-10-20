@@ -18,6 +18,7 @@ namespace Assets.Project.Code.Runtime.Installers
             Container.Bind<TowerLayout>().AsSingle();
 
             Container.Bind<ICubePlacementRule>().To<HeightLimitPlacementRule>().AsCached();
+            Container.Bind<ICubePlacementRule>().To<TopCubeStackPlacementRule>().AsCached();
             //Container.Bind<ICubePlacementRule>().To<MatchingTopColorPlacementRule>().AsCached();
             Container.Bind<PlacementRules>().AsSingle();
 
