@@ -19,7 +19,7 @@ namespace Assets.Project.Code.Runtime.Infrastructure.Pooling
 
         public void Initialize()
         {
-            poolRoot = new GameObject("V4_PrefabPool").transform;
+            poolRoot = new GameObject("PrefabPool").transform;
             UnityEngine.Object.DontDestroyOnLoad(poolRoot.gameObject);
         }
 
