@@ -10,6 +10,9 @@ namespace Assets.Project.Code.Runtime.Installers
         public override void InstallBindings()
         {
             Container.Bind<IGameConfigProvider>().To<JsonConfigurationProvider>().AsSingle();
+
+            //Или можно использовать конфигуратор из ScriptableObject
+            //Container.Bind<IGameConfigProvider>().To<ScriptableObjectConfigProvider>().AsSingle();
         }
     }
 }
