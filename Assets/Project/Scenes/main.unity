@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5092703468005675842, guid: b5d67905c4f1a7344aaa36df0199b8fe, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5493275051588568832, guid: b5d67905c4f1a7344aaa36df0199b8fe, type: 3}
       propertyPath: m_Name
       value: SceneRefs
