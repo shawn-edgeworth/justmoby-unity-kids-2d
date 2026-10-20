@@ -9,7 +9,7 @@ namespace Assets.Project.Code.Runtime.Configuration
 {
     public sealed class JsonConfigurationProvider : IGameConfigProvider
     {
-        public const string FileName = "v4_game_config.json";
+        public const string FileName = "game_config.json";
 
         private readonly List<CubeColorConfig> paletteCubes;
 
