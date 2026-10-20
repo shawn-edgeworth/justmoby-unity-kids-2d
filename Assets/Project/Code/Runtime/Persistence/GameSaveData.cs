@@ -14,6 +14,5 @@ namespace Assets.Project.Code.Runtime.Persistence
     {
         public string ColorId;
         public float NormalizedCenterX;
-        public float NormalizedSize;
     }
 }

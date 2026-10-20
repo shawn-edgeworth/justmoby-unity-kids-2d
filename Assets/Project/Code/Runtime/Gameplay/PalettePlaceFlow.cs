@@ -64,7 +64,7 @@ namespace Assets.Project.Code.Runtime.Gameplay
             gameStateMachine.Set(GameState.DraggingFromPalette);
             LockPaletteScroll();
             DestroyGhost();
-            ghostCube = prefabPool.Spawn(cubePrefabsConfig.GhostCubePrefab.gameObject).GetComponent<CubeView>();
+            ghostCube = prefabPool.Spawn(cubePrefabsConfig.CubePrefab.gameObject).GetComponent<CubeView>();
             ghostCube.SetParent(sceneRefs.DragLayer, false);
             ghostCube.ApplyVisual(source.ColorId, source.Color);
             ghostCube.SetWorldSize(source.Size);

@@ -206,7 +206,7 @@ namespace Assets.Project.Code.Runtime.Presentation
                 throw new InvalidOperationException($"Unknown color id '{cube.ColorId}'.");
             }
 
-            var view = prefabPool.Spawn(cubePrefabsConfig.TowerCubePrefab.gameObject).GetComponent<CubeView>();
+            var view = prefabPool.Spawn(cubePrefabsConfig.CubePrefab.gameObject).GetComponent<CubeView>();
             view.SetParent(sceneRefs.TowerRoot, false);
             view.ApplyVisual(cube.ColorId, color);
             view.SetIndex(index);

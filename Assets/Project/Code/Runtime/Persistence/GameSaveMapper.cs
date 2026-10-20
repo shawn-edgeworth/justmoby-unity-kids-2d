@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Assets.Project.Code.Runtime.Configuration;
 using Assets.Project.Code.Runtime.Model;
 using Assets.Project.Code.Runtime.Presentation;
 using UnityEngine;
@@ -10,16 +11,22 @@ namespace Assets.Project.Code.Runtime.Persistence
     public sealed class GameSaveMapper
     {
         private readonly ITowerArea towerArea;
+        private readonly CubePrefabsConfig cubePrefabsConfig;
+        private readonly SceneRefs sceneRefs;
 
-        public GameSaveMapper(ITowerArea towerArea)
+        public GameSaveMapper(
+            ITowerArea towerArea,
+            CubePrefabsConfig cubePrefabsConfig,
+            SceneRefs sceneRefs)
         {
             this.towerArea = towerArea;
+            this.cubePrefabsConfig = cubePrefabsConfig;
+            this.sceneRefs = sceneRefs;
         }
 
         public GameSaveData ToSaveData(TowerModel tower)
         {
             var areaWidth = GetAreaWidth();
-            var areaHeight = GetAreaHeight();
 
             var data = new GameSaveData
             {
@@ -33,8 +40,7 @@ namespace Assets.Project.Code.Runtime.Persistence
                 data.Cubes.Add(new CubeSaveData
                 {
                     ColorId = cube.ColorId,
-                    NormalizedCenterX = Mathf.Clamp01((cube.PositionX - towerArea.MinX) / areaWidth),
-                    NormalizedSize = cube.Size / areaHeight
+                    NormalizedCenterX = Mathf.Clamp01((cube.PositionX - towerArea.MinX) / areaWidth)
                 });
             }
 
@@ -44,7 +50,7 @@ namespace Assets.Project.Code.Runtime.Persistence
         public bool ApplyToTower(GameSaveData data, TowerModel tower)
         {
             var areaWidth = GetAreaWidth();
-            var areaHeight = GetAreaHeight();
+            var worldSize = ResolveCubeWorldSize();
             var buffer = ListPool<CubeData>.Instance.Spawn();
             var wasTruncated = false;
 
@@ -53,7 +59,6 @@ namespace Assets.Project.Code.Runtime.Persistence
                 for (var i = 0; i < data.Cubes.Count; i++)
                 {
                     var entry = data.Cubes[i];
-                    var worldSize = entry.NormalizedSize * areaHeight;
                     var worldX = towerArea.MinX + entry.NormalizedCenterX * areaWidth;
                     worldX = towerArea.ClampBaseCenterX(worldX, worldSize);
 
@@ -76,6 +81,24 @@ namespace Assets.Project.Code.Runtime.Persistence
             return wasTruncated;
         }
 
+        private float ResolveCubeWorldSize()
+        {
+            var prefabRect = cubePrefabsConfig.CubePrefab.GetComponent<RectTransform>();
+            var parentScale = sceneRefs.TowerRoot.lossyScale.x;
+            if (parentScale <= 0f)
+            {
+                throw new InvalidOperationException("TowerRoot lossyScale.x must be positive.");
+            }
+
+            var worldSize = prefabRect.sizeDelta.x * parentScale;
+            if (worldSize <= 0f)
+            {
+                throw new InvalidOperationException("Tower cube prefab world size must be positive.");
+            }
+
+            return worldSize;
+        }
+
         private bool CanFitAdditionalHeight(List<CubeData> currentCubes, float additionalSize)
         {
             var topY = towerArea.BottomY;
@@ -96,17 +119,6 @@ namespace Assets.Project.Code.Runtime.Persistence
             }
 
             return width;
-        }
-
-        private float GetAreaHeight()
-        {
-            var height = towerArea.TopY - towerArea.BottomY;
-            if (height <= 0f)
-            {
-                throw new InvalidOperationException("TowerArea height must be positive.");
-            }
-
-            return height;
         }
     }
 }

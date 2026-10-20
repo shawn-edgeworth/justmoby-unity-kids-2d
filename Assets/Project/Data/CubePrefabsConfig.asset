@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a169ad3fa54bd43b63d827c894105e, type: 3}
   m_Name: CubePrefabsConfig
   m_EditorClassIdentifier: 
-  <PaletteCubePrefab>k__BackingField: {fileID: 4144122786655541758, guid: 8cfbe7bb0ffb8f34e9d7759c9cde79f1, type: 3}
-  <TowerCubePrefab>k__BackingField: {fileID: 4144122786655541758, guid: 8cfbe7bb0ffb8f34e9d7759c9cde79f1, type: 3}
-  <GhostCubePrefab>k__BackingField: {fileID: 4144122786655541758, guid: 8cfbe7bb0ffb8f34e9d7759c9cde79f1, type: 3}
+  <CubePrefab>k__BackingField: {fileID: 4144122786655541758, guid: 8cfbe7bb0ffb8f34e9d7759c9cde79f1, type: 3}

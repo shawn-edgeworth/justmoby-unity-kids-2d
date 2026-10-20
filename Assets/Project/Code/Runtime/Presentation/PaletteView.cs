@@ -41,7 +41,7 @@ namespace Assets.Project.Code.Runtime.Presentation
             for (var i = 0; i < palette.Count; i++)
             {
                 var entry = palette[i];
-                var view = prefabPool.Spawn(cubePrefabsConfig.PaletteCubePrefab.gameObject).GetComponent<CubeView>();
+                var view = prefabPool.Spawn(cubePrefabsConfig.CubePrefab.gameObject).GetComponent<CubeView>();
                 view.SetParent(sceneRefs.PaletteRoot, false);
                 view.ApplyVisual(entry.ColorId, entry.Color);
                 view.SetIndex(i);
