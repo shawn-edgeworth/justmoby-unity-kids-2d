@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f50b1cd6d5b5c746a64fae6890cf1d9, type: 3}
+  m_Name: GameMessagesConfig
+  m_EditorClassIdentifier: 
+  visibleDurationSeconds: 2
+  cubePickedFromPalette:
+    m_TableReference:
+      m_TableCollectionName: GUID:d0bbbdfd8a6c5934f940b9478bf78212
+    m_TableEntryReference:
+      m_KeyId: 274652025839616
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  cubePickedFromTower:
+    m_TableReference:
+      m_TableCollectionName: GUID:d0bbbdfd8a6c5934f940b9478bf78212
+    m_TableEntryReference:
+      m_KeyId: 274652097142784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  cubePlaced:
+    m_TableReference:
+      m_TableCollectionName: GUID:d0bbbdfd8a6c5934f940b9478bf78212
+    m_TableEntryReference:
+      m_KeyId: 1761359159296
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  cubeDestroyed:
+    m_TableReference:
+      m_TableCollectionName: GUID:d0bbbdfd8a6c5934f940b9478bf78212
+    m_TableEntryReference:
+      m_KeyId: 146039536345090
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  cubeAbsorbedByHole:
+    m_TableReference:
+      m_TableCollectionName: GUID:d0bbbdfd8a6c5934f940b9478bf78212
+    m_TableEntryReference:
+      m_KeyId: 146039536345091
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  cubeMissed:
+    m_TableReference:
+      m_TableCollectionName: GUID:d0bbbdfd8a6c5934f940b9478bf78212
+    m_TableEntryReference:
+      m_KeyId: 275010353618944
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  heightLimitReached:
+    m_TableReference:
+      m_TableCollectionName: GUID:d0bbbdfd8a6c5934f940b9478bf78212
+    m_TableEntryReference:
+      m_KeyId: 110249016025089
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  colorMismatch:
+    m_TableReference:
+      m_TableCollectionName: GUID:d0bbbdfd8a6c5934f940b9478bf78212
+    m_TableEntryReference:
+      m_KeyId: 110249020219392
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

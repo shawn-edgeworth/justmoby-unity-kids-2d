@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d470c003ceb23409f4e933ed2c290f, type: 3}
+  m_Name: GameAudioConfig
+  m_EditorClassIdentifier: 
+  <SourcePrefab>k__BackingField: {fileID: 309904692260347082, guid: 3f272386d8a229d4b823712793267dd2, type: 3}
+  <Pick>k__BackingField: {fileID: 11400000, guid: 96d6f4c804d97c946a6df401ce45b347, type: 2}
+  <PlaceOrSettle>k__BackingField: {fileID: 11400000, guid: fb38bf86694944641a8da9d361cdf4d0, type: 2}
+  <InvalidPlace>k__BackingField: {fileID: 11400000, guid: 0bb894236fd62e04e82e6e4c74e9102d, type: 2}
+  <DestroyWhoosh>k__BackingField: {fileID: 11400000, guid: fa5d7cc4873b8c6409d09051a53b0071, type: 2}
+  <HoleHoverLoop>k__BackingField: {fileID: 11400000, guid: 1b80daaa7827b0540814ce9319ec5b43, type: 2}
+  <HoleFlight>k__BackingField: {fileID: 11400000, guid: 6579fb978b7bd6e45ac1dbfbb469a511, type: 2}
+  <ConsumeVfxProgress>k__BackingField: 0.4
+  <OneShotThrottleSeconds>k__BackingField: 0.1
