@@ -1,0 +1,24 @@
+{
+  "paletteCubes": [
+    { "colorId": "Red", "hex": "#EC2D36" },
+    { "colorId": "Grey", "hex": "#B7B7B7" },
+    { "colorId": "Green", "hex": "#21B438" },
+    { "colorId": "Brown", "hex": "#AA6448" },
+    { "colorId": "Orange", "hex": "#EE711E" },
+    { "colorId": "Maroon", "hex": "#9B1026" },
+    { "colorId": "Yellow", "hex": "#FCD33A" },
+    { "colorId": "SkyBlue", "hex": "#11A2EF" },
+    { "colorId": "RoyalBlue", "hex": "#474FC8" },
+    { "colorId": "Magenta", "hex": "#B649B6" },
+    { "colorId": "Charcoal", "hex": "#5C5C5C" },
+    { "colorId": "Violet", "hex": "#922E86" },
+    { "colorId": "Turquoise", "hex": "#38D1D2" },
+    { "colorId": "HotPink", "hex": "#EC56AD" },
+    { "colorId": "Lime", "hex": "#B1D93D" },
+    { "colorId": "Lavender", "hex": "#A382FF" },
+    { "colorId": "PaleCyan", "hex": "#83EDF5" },
+    { "colorId": "TerraCotta", "hex": "#AE4743" },
+    { "colorId": "ButterYellow", "hex": "#FFE292" },
+    { "colorId": "Orchid", "hex": "#D982F2" }
+  ]
+}
