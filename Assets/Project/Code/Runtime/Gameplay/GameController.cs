@@ -1,5 +1,6 @@
 using System;
 using Assets.Project.Code.Runtime.Presentation;
+using UnityEngine;
 using Zenject;
 
 namespace Assets.Project.Code.Runtime.Gameplay
@@ -31,6 +32,8 @@ namespace Assets.Project.Code.Runtime.Gameplay
 
         public void Initialize()
         {
+            Application.targetFrameRate = 60;
+
             persistence.LoadOrStartNew();
             paletteView.Build();
             towerView.Rebuild();

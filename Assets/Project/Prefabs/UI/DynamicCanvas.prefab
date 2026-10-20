@@ -291,10 +291,10 @@ RectTransform:
   - {fileID: 1915100636895432202}
   m_Father: {fileID: 5595679104357028772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.175}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: -5, y: -10}
+  m_AnchoredPosition: {x: 0, y: 114}
+  m_SizeDelta: {x: -5, y: -228}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &4571568058369049621
 CanvasRenderer:
@@ -572,11 +572,11 @@ RectTransform:
   - {fileID: 2311622735264156798}
   m_Father: {fileID: 5595679104357028772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.175}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.28}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 227.99997}
+  m_SizeDelta: {x: 0, y: -228}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &6701496801660142344
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,10 +609,10 @@ RectTransform:
   m_Father: {fileID: 5595679104357028772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.175}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0.5}
+  m_SizeDelta: {x: 0, y: 218}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &6809454124833303702
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollRect: {fileID: 4343894111558842168}
-  pixelThreshold: 30
+  pixelThreshold: 80
   timeThreshold: 0.05
   scrollAxis: 0
 --- !u!1 &6821700085656882800
@@ -911,10 +911,10 @@ RectTransform:
   - {fileID: 1225631077144006019}
   m_Father: {fileID: 5595679104357028772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.175}
+  m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5, y: 5}
-  m_SizeDelta: {x: -5, y: -10}
+  m_AnchoredPosition: {x: 5, y: 114}
+  m_SizeDelta: {x: -5, y: -228}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &8285031460471719631
 GameObject:
@@ -1238,10 +1238,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1472467540346207209}
     m_Modifications:
-    - target: {fileID: -1214347414141679612, guid: 27a55a9fbd84b2d4f9204fa43448f5d2, type: 3}
-      propertyPath: m_SortingLayer
-      value: 32711
-      objectReference: {fileID: 0}
     - target: {fileID: 2843102008380779691, guid: 27a55a9fbd84b2d4f9204fa43448f5d2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

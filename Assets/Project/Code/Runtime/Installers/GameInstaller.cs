@@ -19,7 +19,10 @@ namespace Assets.Project.Code.Runtime.Installers
 
             Container.Bind<ICubePlacementRule>().To<HeightLimitPlacementRule>().AsCached();
             Container.Bind<ICubePlacementRule>().To<TopCubeStackPlacementRule>().AsCached();
+
+            //Можно добавить установку только по подходящему цвету
             //Container.Bind<ICubePlacementRule>().To<MatchingTopColorPlacementRule>().AsCached();
+
             Container.Bind<PlacementRules>().AsSingle();
 
             Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
