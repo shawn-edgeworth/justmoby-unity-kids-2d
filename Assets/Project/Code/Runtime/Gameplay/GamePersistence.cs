@@ -31,8 +31,8 @@ namespace Assets.Project.Code.Runtime.Gameplay
 
             try
             {
-                var wasTruncated = saveMapper.ApplyToTower(data, tower);
-                if (wasTruncated)
+                var needsResave = saveMapper.ApplyToTower(data, tower);
+                if (needsResave)
                 {
                     Save();
                 }

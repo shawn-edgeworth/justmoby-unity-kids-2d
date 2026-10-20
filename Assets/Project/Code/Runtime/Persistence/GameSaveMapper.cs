@@ -13,15 +13,18 @@ namespace Assets.Project.Code.Runtime.Persistence
         private readonly ITowerArea towerArea;
         private readonly CubePrefabsConfig cubePrefabsConfig;
         private readonly SceneRefs sceneRefs;
+        private readonly IGameConfigProvider configProvider;
 
         public GameSaveMapper(
             ITowerArea towerArea,
             CubePrefabsConfig cubePrefabsConfig,
-            SceneRefs sceneRefs)
+            SceneRefs sceneRefs,
+            IGameConfigProvider configProvider)
         {
             this.towerArea = towerArea;
             this.cubePrefabsConfig = cubePrefabsConfig;
             this.sceneRefs = sceneRefs;
+            this.configProvider = configProvider;
         }
 
         public GameSaveData ToSaveData(TowerModel tower)
@@ -47,24 +50,37 @@ namespace Assets.Project.Code.Runtime.Persistence
             return data;
         }
 
+        /// <summary>
+        /// Applies save data to the tower. Skips cubes with ColorId missing from config
+        /// and truncates by height limit. Returns true when the applied state differs from save
+        /// and should be re-persisted.
+        /// </summary>
         public bool ApplyToTower(GameSaveData data, TowerModel tower)
         {
             var areaWidth = GetAreaWidth();
             var worldSize = ResolveCubeWorldSize();
             var buffer = ListPool<CubeData>.Instance.Spawn();
-            var wasTruncated = false;
+            var needsResave = false;
 
             try
             {
                 for (var i = 0; i < data.Cubes.Count; i++)
                 {
                     var entry = data.Cubes[i];
+                    if (!configProvider.TryGetColor(entry.ColorId, out _))
+                    {
+                        Debug.LogWarning(
+                            $"Save cube at index {i} has unknown ColorId '{entry.ColorId}' and was skipped.");
+                        needsResave = true;
+                        continue;
+                    }
+
                     var worldX = towerArea.MinX + entry.NormalizedCenterX * areaWidth;
                     worldX = towerArea.ClampBaseCenterX(worldX, worldSize);
 
                     if (!CanFitAdditionalHeight(buffer, worldSize))
                     {
-                        wasTruncated = true;
+                        needsResave = true;
                         break;
                     }
 
@@ -78,7 +94,7 @@ namespace Assets.Project.Code.Runtime.Persistence
                 ListPool<CubeData>.Instance.Despawn(buffer);
             }
 
-            return wasTruncated;
+            return needsResave;
         }
 
         private float ResolveCubeWorldSize()
