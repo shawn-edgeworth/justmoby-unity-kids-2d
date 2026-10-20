@@ -113,3 +113,6 @@ InitTestScene*.unity*
 
 # Keystore folder
 /[Kk]eys/
+
+# Builds folder
+/[Bb]uilds/
