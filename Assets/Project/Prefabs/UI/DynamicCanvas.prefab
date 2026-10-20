@@ -734,8 +734,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollRect: {fileID: 4343894111558842168}
-  pixelThreshold: 80
-  timeThreshold: 0.05
+  pixelThreshold: 60
+  timeThreshold: 0.1
   scrollAxis: 0
 --- !u!1 &6821700085656882800
 GameObject:
